@@ -1,4 +1,4 @@
-# webserver
+# Simple Web server
 this is a simple demo of a basic web server and web framework under WSGI based on Python3.
 it just shows how a web framework like Django work with a web server like nginx under WSGI.
 
