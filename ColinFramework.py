@@ -22,9 +22,9 @@ class ColinFramework(object):
             filename = os.path.join(self.STATIC_ROOT_PAT, path[len(mark):])
 
             if os.path.exists(filename):
-                file = open(filename, "rb")
-                content = file.read()
-                file.close()
+                content = None
+                with open(filename, "rb") as file
+                    content = file.read()
 
                 start_response(self.OK, [])
                 return content
