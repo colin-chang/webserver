@@ -1,4 +1,5 @@
 import os
+import logging
 
 
 class ColinFramework(object):
@@ -23,12 +24,13 @@ class ColinFramework(object):
 
             if os.path.exists(filename):
                 content = None
-                with open(filename, "rb") as file
+                with open(filename, "rb") as file:
                     content = file.read()
 
                 start_response(self.OK, [])
                 return content
             else:
+                logging.warning("%s was not found" % filename)
                 start_response(self.NOT_FOUND, [])
                 return b"Not Found"
 
@@ -37,5 +39,6 @@ class ColinFramework(object):
             if url == path:  # 路由分发
                 return handler(env, start_response)
 
+        logging.error("%s has no matched handler")
         start_response(self.NOT_FOUND, [])
         return b"Not Found"

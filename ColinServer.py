@@ -1,7 +1,7 @@
 from gevent import monkey, socket
+from gevent import spawn
 
 monkey.patch_all()
-from gevent import spawn
 
 
 class ColinServer(object):
